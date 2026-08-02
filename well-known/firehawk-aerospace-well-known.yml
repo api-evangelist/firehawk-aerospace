@@ -1,0 +1,117 @@
+generated: '2026-08-01'
+method: probed
+source: live probes of /.well-known/ and contract-discovery paths on Firehawk hosts
+result: >-
+  No /.well-known/ document is published on any Firehawk host. One agent-facing
+  discovery document was found: a Yoast-SEO-generated /llms.txt served over the legacy
+  firehawkaerospace.com host (saved verbatim to llms/firehawk-aerospace-llms.txt).
+  No OpenAPI, Swagger, GraphQL, MCP or A2A surface exists.
+probe_caveat: >-
+  firehawkdefense.com (the canonical host after the 301 from firehawkaerospace.com) sits
+  behind an SGcaptcha/Cloudflare interstitial that answers HTTP 202 with an HTML
+  meta-refresh to /.well-known/sgcaptcha/ for EVERY path, including paths that do not
+  exist. Every 202 below is therefore that catch-all challenge, not a published document -
+  it is recorded as `catch-all-challenge` and MUST NOT be read as a hit. The legacy
+  firehawkaerospace.com host answers real status codes for /.well-known/* and /llms.txt,
+  so those rows are authoritative.
+hosts:
+- host: https://firehawkaerospace.com
+  note: legacy host, 301s to firehawkdefense.com for page paths; returns real status codes
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain
+    file: ../llms/firehawk-aerospace-llms.txt
+    generator: Yoast SEO v28.1
+    last_modified: '2026-07-27'
+  - path: /openapi.json
+    status: 202
+    result: catch-all-challenge
+  - path: /swagger.json
+    status: 202
+    result: catch-all-challenge
+  - path: /api-docs
+    status: 202
+    result: catch-all-challenge
+- host: https://www.firehawkaerospace.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain
+- host: https://firehawkdefense.com
+  note: canonical host; every path answers 202 SGcaptcha interstitial - no row here is a hit
+  documents:
+  - path: /.well-known/security.txt
+    status: 202
+    result: catch-all-challenge
+  - path: /.well-known/openid-configuration
+    status: 202
+    result: catch-all-challenge
+  - path: /.well-known/oauth-authorization-server
+    status: 202
+    result: catch-all-challenge
+  - path: /.well-known/api-catalog
+    status: 202
+    result: catch-all-challenge
+  - path: /.well-known/ai-plugin.json
+    status: 202
+    result: catch-all-challenge
+  - path: /.well-known/agent-card.json
+    status: 202
+    result: catch-all-challenge
+  - path: /.well-known/agent.json
+    status: 202
+    result: catch-all-challenge
+  - path: /llms.txt
+    status: 202
+    result: catch-all-challenge
+  - path: /openapi.json
+    status: 202
+    result: catch-all-challenge
+  - path: /swagger.json
+    status: 202
+    result: catch-all-challenge
+  - path: /api-docs
+    status: 202
+    result: catch-all-challenge
+contract_discovery:
+  openapi: none
+  swagger: none
+  graphql: none
+  asyncapi: none
+  mcp: none
+  a2a_agent_card: none
+  note: >-
+    No API host or baseURL exists to probe - Firehawk publishes no developer portal and
+    no apis[] entry exists in apis.yml. Probes were run against the corporate website
+    hosts, which is the full public surface. Nothing was written to a2a/ because the
+    agent-card probe missed on every host (a2a artifacts are search-only and are never
+    generated on a provider's behalf).

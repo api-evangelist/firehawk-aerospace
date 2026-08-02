@@ -1,0 +1,53 @@
+generated: '2026-08-01'
+method: searched
+source: registry searches of npm, PyPI, NuGet, RubyGems, crates.io, Packagist and GitHub (2026-08-01)
+result: none
+notes: >-
+  Firehawk Aerospace publishes no client SDK or first-party package in any public
+  registry, because it publishes no public API. It is an energetics and rocket-propulsion
+  manufacturer, not a software vendor. The name "firehawk" is squatted by several
+  unrelated open-source projects (a DataStax graph REPL on PyPI, an NHibernate mapping
+  library on NuGet) - those are recorded below as explicitly NOT first-party so a later
+  run does not mistake them for provider SDKs. No `SDKs` pointer is wired in apis.yml and
+  the sdk_count checks are correctly left unearned.
+packages: []
+registries_checked:
+- registry: npm
+  query: firehawk aerospace
+  result: 51 loosely-matching packages, none published under a Firehawk namespace or by Firehawk
+- registry: pypi
+  query: firehawk-aerospace
+  result: 404 - no project
+- registry: pypi
+  query: firehawk
+  result: >-
+    200 - project exists but is unrelated (v0.3, "Alternative graph parsing language and
+    REPL for DataStax Enterprise (DSE)", author Jon Haddad,
+    https://github.com/rustyrazorblade/firehawk)
+  first_party: false
+- registry: nuget
+  query: firehawk
+  result: >-
+    2 hits, both unrelated (Firehawk / Firehawk.MsSql - NHibernate mapping-by-convention
+    library, author HomeroThompson, https://github.com/HomeroThompson/firehawk)
+  first_party: false
+- registry: rubygems
+  query: firehawk
+  result: no results
+- registry: crates.io
+  query: firehawk
+  result: no matching crate
+- registry: packagist
+  query: firehawk
+  result: 10 results, all unrelated (firewalker/*, icehawk/*)
+- registry: github
+  query: orgs/Firehawk-Aerospace
+  result: >-
+    organization exists (login Firehawk-Aerospace, created 2022-11-08) with 0 public
+    repositories, no website, no bio and no verifiable link back to firehawkaerospace.com
+    or firehawkdefense.com
+  first_party: unverified
+  note: >-
+    NOT wired as a GitHubOrganization pointer in apis.yml - an empty org with no
+    back-link is not evidence the company operates it, and an unevidenced link would be
+    fabrication.

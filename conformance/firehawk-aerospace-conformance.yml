@@ -1,0 +1,97 @@
+generated: '2026-08-01'
+method: derived
+source: >-
+  Firehawk-published /llms.txt and news releases, PRNewswire announcements, SBIR.gov
+  portfolio record, and live probes recorded in well-known/firehawk-aerospace-well-known.yml
+  (2026-08-01)
+scope: >-
+  Firehawk Aerospace publishes no API, so there are no API or cross-cutting technical
+  standards to assert. The API/protocol block below is recorded as not-applicable rather
+  than false, so this file is never mistaken for a compliance posture the company does
+  not claim. What Firehawk does operate under - and what a defense buyer actually
+  evaluates - are U.S. government contracting programs, recorded separately below as
+  programs, NOT as certifications. No AS9100, ISO 9001, ITAR-registration, CMMC or
+  equivalent certificate was found published by Firehawk or by a third party, so none is
+  asserted here.
+government_programs:
+- id: sbir-phase-iii-aal
+  name: U.S. Army Applications Laboratory SBIR Phase III
+  status: documented
+  evidence: >-
+    Firehawk completed the inaugural flight test of an additively manufactured
+    GMLRS-class Firehawk Analog (GFA) as part of an ongoing Phase III SBIR contract with
+    the Army Applications Laboratory.
+  source: https://www.sbir.gov/portfolio/1661123
+- id: usaf-test-center-contract
+  name: U.S. Air Force Test Center hybrid rocket engine contract
+  status: documented
+  evidence: >-
+    Two-year, firm-fixed $4.9M contract awarded by the U.S. Air Force Test Center
+    supporting AFRL next-generation hybrid rocket engine development.
+  source: https://www.prnewswire.com/news-releases/firehawk-aerospace-awarded-4-9m-us-air-force-contract-to-advance-hybrid-rocket-engine-development-302468786.html
+- id: dcma-rated-facility
+  name: DCMA-rated integration facility (Crawford, Mississippi)
+  status: documented
+  evidence: >-
+    Firehawk announced an agreement to acquire a DCMA-rated integration facility in
+    Crawford, MS. The rating attaches to the acquired facility; Firehawk publishes no
+    corporate quality certificate of its own.
+  source: https://firehawkdefense.com/news/firehawk-aerospace-expands-u-s-rocket-manufacturing-with-mississippi-facility-acquisition/
+certifications_searched:
+  found: false
+  searched_for: [AS9100, ISO 9001, ITAR registration, CMMC, NIST SP 800-171, SOC 2, ISO 27001]
+  note: >-
+    No published certificate, registration number or third-party attestation was located
+    for any of the above. Absence of a published record is not evidence of absence of the
+    certification - it is recorded here as not-found, and no `Compliance` pointer is
+    wired in apis.yml.
+api_standards:
+- id: openapi
+  conforms: false
+  applicable: false
+  evidence: no public API contract published (see well-known/firehawk-aerospace-well-known.yml)
+- id: swagger
+  conforms: false
+  applicable: false
+- id: graphql
+  conforms: false
+  applicable: false
+- id: asyncapi
+  conforms: false
+  applicable: false
+- id: oauth2
+  conforms: false
+  applicable: false
+- id: openid-connect
+  conforms: false
+  applicable: false
+- id: rfc9457-problem-details
+  conforms: false
+  applicable: false
+- id: model-context-protocol
+  conforms: false
+  applicable: false
+- id: a2a-agent-card
+  conforms: false
+  applicable: true
+  evidence: >-
+    /.well-known/agent-card.json and /.well-known/agent.json return 404 on
+    firehawkaerospace.com and only the SGcaptcha catch-all on firehawkdefense.com
+- id: rfc9116-security-txt
+  conforms: false
+  applicable: true
+  evidence: /.well-known/security.txt returns 404 on firehawkaerospace.com
+- id: llms-txt
+  conforms: true
+  applicable: true
+  evidence: >-
+    /llms.txt is served (HTTP 200, text/plain, Yoast SEO v28.1, last modified
+    2026-07-27) on firehawkaerospace.com; saved verbatim to
+    llms/firehawk-aerospace-llms.txt
+information_security_compliance:
+  found: false
+  note: >-
+    probe-security-programs.py found no security.txt policy, no bug-bounty program and no
+    trust center (vdp=none trust=none). The canonical host is behind an SGcaptcha
+    interstitial, so a body-content probe could not run against firehawkdefense.com; a
+    later round should re-check if that interstitial is removed.

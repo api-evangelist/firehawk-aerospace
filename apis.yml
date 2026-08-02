@@ -1,23 +1,65 @@
 aid: firehawk-aerospace
 name: Firehawk Aerospace
-description: 'Firehawk Aerospace is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: 'Firehawk Aerospace, Inc. is a Dallas, Texas defense-technology manufacturer
+  founded in 2019 by Ronald Jones, Will Edwards and Steve Edwards that replaces conventional
+  rocket-propulsion production with additive manufacturing. Its proprietary 3D-printed
+  solid rocket fuel, branded 3D-Ultra, is used to build hybrid rocket engines and solid
+  rocket motors whose fuel-grain geometry is printed rather than cast, cutting production
+  timelines from years to weeks while removing the handling hazards of traditional
+  energetics. The company works under U.S. Army Applications Laboratory SBIR Phase III
+  and U.S. Air Force Test Center contracts, has flight-tested an additively manufactured
+  GMLRS-class analog, and is expanding manufacturing capacity in Lawton, Oklahoma and
+  Crawford, Mississippi. Firehawk now operates publicly as Firehawk Defense
+  (firehawkdefense.com); the firehawkaerospace.com domain 301-redirects there. It is a
+  hardware and energetics manufacturer, not a software vendor: it publishes no developer
+  portal, no API documentation, no SDK and no machine-readable API contract.'
 url: https://raw.githubusercontent.com/api-evangelist/firehawk-aerospace/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
+x-tier: profiled
 x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-01'
 modified: '2026-08-01'
 tags:
 - Company
+- Aerospace
+- Defense
+- Rocket Propulsion
+- Additive Manufacturing
+- Energetics
+- Manufacturing
+- Space
+- Texas
 apis: []
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-08-01'
+  status: enriched
+  artifacts_added: 5
+  pass: local-v1
 common:
 - type: Website
+  url: https://firehawkdefense.com/
+- type: About
+  url: https://firehawkdefense.com/about-firehawk-aerospace/
+- type: Blog
+  url: https://firehawkdefense.com/news/
+- type: PrivacyPolicy
+  url: https://firehawkdefense.com/privacy-policy/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/firehawk-aerospace
+- type: SecondaryMarket
   url: https://forgeglobal.com/firehawk-aerospace_stock/
+- type: LLMsTxt
+  url: llms/firehawk-aerospace-llms.txt
+- type: DomainSecurity
+  url: security/firehawk-aerospace-domain-security.yml
+- type: Packages
+  url: packages/firehawk-aerospace-packages.yml
+- type: Conformance
+  url: conformance/firehawk-aerospace-conformance.yml
